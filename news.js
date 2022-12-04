@@ -3,7 +3,6 @@ const loadNewsBar = () => {
     .then(res => res.json())
     .then(data => displayNewsBar(data.data.news_category))
 }
-
 const displayNewsBar = (newsBar) => {
   try {
     newsBar.forEach(eachBar => {
@@ -108,7 +107,6 @@ const displayNews = (newses) => {
         `
     
     mainElement.appendChild(mainDiv)
-    toggleSpinner(false);
   });
 }
 loadNews('01');
@@ -116,13 +114,5 @@ loadNews('01');
 function pageRedirect() {
   window.location.href = 'blog.html'
 }      
-const toggleSpinner = (isLoading) => {
-  const loaderSection = document.getElementById('loader')
-  if (isLoading) {
-      loaderSection.classList.remove('d-none')
-  } else {
-      loaderSection.classList.add('d-none');
-  }
-};
 
 
