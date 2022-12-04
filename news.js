@@ -83,9 +83,9 @@ const displayNews = (newses) => {
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body p-5">
         <div class="d-flex justify-content-center align-item-center">
-        <img class="img-fluid" src="${news.thumbnail_url}">
+        <img class="img-fluid mb-2" src="${news.thumbnail_url}">
         </div>
         <h1 class="modal-title fs-5" id="exampleModalLabel">Title: ${news.title}</h1>
         <p>${news.details.slice(0,600)}</p>
