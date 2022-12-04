@@ -3,23 +3,22 @@ const loadNewsBar = () => {
     .then(res => res.json())
     .then(data => displayNewsBar(data.data.news_category))
 }
+
 const displayNewsBar = (newsBar) => {
   try {
     newsBar.forEach(eachBar => {
-      toggleSpinner(true)
-
       const newsBarDiv = document.getElementById('category');
       const newsBarElement = document.createElement('div');
-  
+
       newsBarElement.innerHTML = `
     <div>
        <a onclick="loadNews('${eachBar.category_id}')"><h5>${eachBar.category_name}</h5></a>
-    </div>
+  </div>
     `
 
       newsBarDiv.appendChild(newsBarElement);
     })
-  
+
   } catch (error) {
     console.log(error)
   }
@@ -32,7 +31,7 @@ const loadNews = (categoryId) => {
 };
 
 const displayNews = (newses) => {
-  
+
   const searchElement = document.getElementById('search');
   searchElement.innerText = `${newses.length} items found for category `
   searchElement.classList.remove('d-none')
@@ -58,7 +57,7 @@ const displayNews = (newses) => {
  </div>
  <div>
  <div>
- <p class="m-0">${news.author.name? news.author.name: 'No Data Found'}</p>
+ <p class="m-0">${news.author.name ? news.author.name : 'No Data Found'}</p>
  <p class="m-0">${news?.author?.published_date?.slice(0, 11)}</p>
  </div>
  </div>
@@ -84,11 +83,11 @@ const displayNews = (newses) => {
         <img class="img-fluid mb-2" src="${news.thumbnail_url}">
         </div>
         <h1 class="modal-title fs-5" id="exampleModalLabel">Title: ${news.title}</h1>
-        <p>${news.details.slice(0,600)}</p>
-        <h6>Author: ${news.author.name? news.author.name: "No Data Found"}</h6>
+        <p>${news.details.slice(0, 600)}</p>
+        <h6>Author: ${news.author.name ? news.author.name : "No Data Found"}</h6>
         <h6>Published: ${news.author.published_date}</h6>
         <h6>Rating: ${news.rating.number}</h6>
-        <h6>View: ${news.total_view? news.total_view : "NO Data Found"} </h6>
+        <h6>View: ${news.total_view ? news.total_view : "NO Data Found"} </h6>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -105,7 +104,7 @@ const displayNews = (newses) => {
 </div>
 
         `
-    
+
     mainElement.appendChild(mainDiv)
   });
 }
@@ -113,6 +112,7 @@ loadNews('01');
 
 function pageRedirect() {
   window.location.href = 'blog.html'
-}      
+}
+
 
 
