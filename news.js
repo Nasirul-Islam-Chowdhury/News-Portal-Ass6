@@ -1,15 +1,13 @@
 const loadNewsBar = () => {
-  document.getElementById('spinner').classList.add('d-none');
   fetch('https://openapi.programming-hero.com/api/news/categories')
     .then(res => res.json())
     .then(data => displayNewsBar(data.data.news_category))
-
-  document.getElementById('spinner').classList.add('d-flex');
-
 }
+
 const displayNewsBar = (newsBar) => {
   try {
     newsBar.forEach(eachBar => {
+      toggleSpinner(true)
 
       const newsBarDiv = document.getElementById('category');
       const newsBarElement = document.createElement('div');
@@ -17,12 +15,10 @@ const displayNewsBar = (newsBar) => {
       newsBarElement.innerHTML = `
     <div>
        <a onclick="loadNews('${eachBar.category_id}')"><h5>${eachBar.category_name}</h5></a>
-  
-              </div>
+    </div>
     `
-  
+
       newsBarDiv.appendChild(newsBarElement);
-  
     })
   
   } catch (error) {
@@ -37,13 +33,14 @@ const loadNews = (categoryId) => {
 };
 
 const displayNews = (newses) => {
+  
   const searchElement = document.getElementById('search');
   searchElement.innerText = `${newses.length} items found for category `
   searchElement.classList.remove('d-none')
   const mainElement = document.getElementById('main');
   mainElement.innerHTML = ``;
-
   newses.forEach(news => {
+
     const mainDiv = document.createElement('div');
     mainDiv.innerHTML = `
         <div class="card my-3 p-4">
@@ -109,7 +106,9 @@ const displayNews = (newses) => {
 </div>
 
         `
+    
     mainElement.appendChild(mainDiv)
+    toggleSpinner(false);
   });
 }
 loadNews('01');
@@ -117,5 +116,13 @@ loadNews('01');
 function pageRedirect() {
   window.location.href = 'blog.html'
 }      
+const toggleSpinner = (isLoading) => {
+  const loaderSection = document.getElementById('loader')
+  if (isLoading) {
+      loaderSection.classList.remove('d-none')
+  } else {
+      loaderSection.classList.add('d-none');
+  }
+};
 
 
