@@ -13,30 +13,6 @@
 
 
 <body class="bg-light">
-
-    <!-- Button trigger modal -->
-  
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <header class=" container py-3">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
@@ -66,12 +42,19 @@
 
     <main>
         <section id="category" class="container new d-flex justify-content-between text-secondary">
-            <div id="spinner" class="spinner-border d-none text-center" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
+            
         </section>
-            <h4 id="search" class="container py-3 my-2 text-secondary bg-white"></h4>
+            <h4 id="search" class="container py-3 my-2 bg-white d-none">
+            </h4>
+            <section>
+                <div id="spinner" class="d-flex justify-content-center align-items-center d-none">
+                    <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+            </section>
         <section class="container" id="main">
+            
         </section>
 
     </main>
