@@ -114,4 +114,8 @@ const displayNews = (newses) => {
 }
 loadNews('08');
 
+function pageRedirect() {
+  window.location.href = 'blog.html'
+}      
+
 
