@@ -112,7 +112,7 @@ const displayNews = (newses) => {
     mainElement.appendChild(mainDiv)
   });
 }
-loadNews('08');
+loadNews('01');
 
 function pageRedirect() {
   window.location.href = 'blog.html'
